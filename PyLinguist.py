@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import goslate
+import translators as ts
 import xml.etree.ElementTree as ET
 import argparse
 import time
@@ -12,7 +12,7 @@ import re
 
 class PyLinguist(object):
     """PyLinguist: wrap of goslate and XML parser"""
-    gs = goslate.Goslate()
+    ts = ts
     tree = None
 
     refMarkReg = "\s*\&\s*"
@@ -62,7 +62,7 @@ class PyLinguist(object):
                         print("Repeat: \"" + source + "\" : \"" + self.maplist[source] + "\"")
                 else:
                     try:
-                        text = self.gs.translate(source, target_lang)
+                        text = self.ts.google(query_text=source, from_language='auto', to_language=target_lang)
                         text = self.processText(text)
 
                         msg.find('translation').text = text
@@ -74,7 +74,7 @@ class PyLinguist(object):
                         if verbose:
                             print("Error: " + source + " fail")
 
-        return self.gs.translate(source, target_lang)
+        return self.ts.google(query_text=source, from_language='auto', to_language=target_lang)
 
     def writeXML(self, filename):
         """Write tree object into file"""
