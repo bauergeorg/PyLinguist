@@ -2,10 +2,10 @@
 This is a Python Qt tf file translator using Google Translation
 
 ## Pre-request
-PyLinguist require python package Goslate  
-https://pypi.python.org/pypi/goslate  
+PyLinguist require python package Translators  
+https://pypi.org/project/translators/
 Can be installed by pip:  
-$ pip install goslate  
+$ pip install translators  
 
 ## Usage
 python PyLinguist.py input\_ts\_file target\_language  
@@ -17,7 +17,7 @@ available option:
 
 ## Language Support
 The language that google translate supportted can be found at:  
-https://cloud.google.com/translate/v2/using\_rest#language-params
+https://pypi.org/project/translators/#support-language
 
 ## Bugs
 * Please report bugs to the Github issue tracker.
